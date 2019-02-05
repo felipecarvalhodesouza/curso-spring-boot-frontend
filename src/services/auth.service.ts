@@ -30,6 +30,7 @@ export class AuthService{
         let tok = authorizationValue.substring(7);
         let user : LocalUser = { 
             token: tok,
+            //esse método pega o email do token
             email: this.jwtHelper.decodeToken(tok).sub
         };
         this.storage.setLocalUser(user);
