@@ -39,4 +39,14 @@ export class AuthService{
     logout(){
         this.storage.setLocalUser(null);
     }
-}
+
+    refreshToken(){
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/auth/refresh_token`,
+            {},
+            {
+                observe: 'response',
+                //evitar erro de parse de Json (o responsebody vem vazio)
+                responseType: 'text'
+            });
+    }
