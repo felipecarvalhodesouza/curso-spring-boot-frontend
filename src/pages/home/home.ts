@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage, MenuController } from 'ionic-angular';
 import { CategoriasPage } from '../categorias/categorias';
+import { CredenciaisDTO } from '../../models/credenciais.dto';
 
 @IonicPage()
 @Component({
@@ -8,6 +9,11 @@ import { CategoriasPage } from '../categorias/categorias';
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+  creds : CredenciaisDTO = {
+    email: "",
+    senha: ""
+  }
 
   // injeção de dependências
   // basta declarar como parâmetro do construtor
@@ -23,6 +29,7 @@ export class HomePage {
     this.menu.swipeEnable(false);
   }
   ionViewDidLeave() {
+    console.log(this.creds);
     this.menu.swipeEnable(true);
   }
   
