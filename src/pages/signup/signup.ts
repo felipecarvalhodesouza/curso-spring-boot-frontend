@@ -21,7 +21,7 @@ export class SignupPage {
               public navParams: NavParams,
               public formBuilder: FormBuilder,
               public cidadeService: CidadeService,
-              public estadoSercice: EstadoService) {
+              public estadoService: EstadoService) {
       
               //método responsável por instanciar o formgroup
       this.formGroup = this.formBuilder.group({
@@ -48,8 +48,8 @@ export class SignupPage {
   }
 
   ionViewDidLoad(){
-    this.estadoSercice.findAll()
-    .subscribe(response =>{
+    this.estadoService.findAll()
+    .subscribe(response => {
       this.estados = response;
       this.formGroup.controls.estadoId.setValue(this.estados[0].id);
       this.updateCidades();
