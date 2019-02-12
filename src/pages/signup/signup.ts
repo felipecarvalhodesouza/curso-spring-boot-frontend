@@ -6,6 +6,7 @@ import { EstadoService } from '../../services/domain/estado.service';
 import { EstadoDTO } from '../../models/estado.dto';
 import { CidadeDTO } from '../../models/cidade.dto';
 import { ClienteService } from '../../services/domain/cliente.service';
+import { PasswordCheckService } from '../../services/password.check.service';
 
 @IonicPage()
 @Component({
@@ -24,7 +25,8 @@ export class SignupPage {
               public cidadeService: CidadeService,
               public estadoService: EstadoService,
               public clienteService: ClienteService,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController,
+              public passwordCheckService: PasswordCheckService) {
       
               //método responsável por instanciar o formgroup
       this.formGroup = this.formBuilder.group({
@@ -90,5 +92,9 @@ export class SignupPage {
       ]
     });
     alert.present();
+  }
+
+  passwordStrenghtCheck(password: string) : string {
+    return this.passwordCheckService.checkPasswordStrength(password);
   }
 }
