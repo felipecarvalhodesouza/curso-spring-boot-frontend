@@ -84,4 +84,5 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <engine name="browser" spec="~5.0.3" />
     <plugin name="cordova-plugin-camera" spec="https://github.com/apache/cordova-plugin-camera" />
+    <allow-navigation href="http://192.168.0.198:8100" />
 </widget>
